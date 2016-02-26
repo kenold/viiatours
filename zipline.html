@@ -21,20 +21,21 @@
 
     <div class="container">
       <div class="page-header">
-        <div class="col-md-6">
-          <h1>Viia Tours Top Excursions</h1>
-        </div>
-        <div id="viewcart">
-            <span class="glyphicon glyphicon-shopping-cart"></span> Cart
-        </div>
-      </div>
-      <p class="lead">Find the best adventure and sightseeing activities in the area.</p>    
+        <h1>Viia Tours Top Excursions</h1>
+        <div id="links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li id="viewcart">Cart <span class="glyphicon glyphicon-shopping-cart"></span></li>
+          </ul>
+        </div> <!-- end links -->
+      </div> <!-- end page-header -->    
       
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="card">
               <a href="zipline.html"><img src="http://viiatours.com/wp-content/uploads/2015/10/zipline-canopy-puntacana.jpg" alt="tours" class="img-thumbnail"></a>
               <h5><a href="#">ZIP LINE + BUGGY</a></h5>
               <h4>$140</h4>
+              <span id="addcart" class="btn btn-success">Add to cart</span>
             </div>
           </div>
                  
@@ -54,11 +55,24 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     
     <script>
+        // render the mini cart
         paypal.minicart.render();
 
+        // show mini cart
         $('#viewcart').click(function (e) {
+          e.stopPropagation();
+          paypal.minicart.view.show();
+        });
+
+        // add this tour to cart
+        $('#addcart').click(function (e) {
         e.stopPropagation();
-        paypal.minicart.view.show();
+        paypal.minicart.cart.add({
+          business: 'ken-test@viiatours.com',
+          item_name: 'ZIP LINE + BUGGY',
+          amount: 140.00,
+          currency_code: 'USD'
+        });
       });
     </script>
   </body>

@@ -32,7 +32,7 @@
       
       <div class="row">        
 
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="card">
               <a href="dune.html"><img src="http://viiatours.com/wp-content/uploads/2016/01/dune-buggy.jpg" alt="tours" class="img-thumbnail"></a>
               <h5><a href="#">DUNE BUGGY INDIVIDUAL</a></h5>
@@ -61,20 +61,20 @@
 
         // show mini cart
         $('#viewcart').click(function (e) {
-        e.stopPropagation();
-        paypal.minicart.view.show();
-      });
+          e.stopPropagation();
+          paypal.minicart.view.show();
+        });
 
-      // add this tour to cart
-      $('#addcart').click(function (e) {
-      e.stopPropagation();
-      paypal.minicart.cart.add({
-        business: 'ken-test@viiatours.com',
-        item_name: 'DUNE BUGGY INDIVIDUAL',
-        amount: 85.00,
-        currency_code: 'USD'
+        // add this tour to cart
+        $('#addcart').click(function (e) {
+        e.stopPropagation();
+        paypal.minicart.cart.add({
+          business: 'ken-test@viiatours.com',
+          item_name: 'DUNE BUGGY INDIVIDUAL',
+          amount: 85.00,
+          currency_code: 'USD'
+        });
       });
-    });
     </script>
   </body>
 </html>
