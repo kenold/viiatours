@@ -13,14 +13,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles -->
-    <link href="css/custom.css" rel="stylesheet">
-
-    <!-- mini cart JS -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
-    
-    <script>
-        paypal.minicart.render();
-    </script>
+    <link href="css/custom.css" rel="stylesheet">    
 
   </head>
 
@@ -29,7 +22,11 @@
     <div class="container">
       <div class="page-header">
         <h1>Viaa Tours Top Excursions</h1>
-        <div class="cart"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></div>
+        <div class="cart">
+          <span id="viewcart">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+          </span>
+        </div>
       </div>
       <p class="lead">Find the best adventure and sightseeing activities in the area.</p>    
       
@@ -59,6 +56,49 @@
           </div>          
       </div> <!-- row -->
 
+      <!-- test mini cart js -->
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                <fieldset>
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="add" value="1">
+                    <input type="hidden" name="business" value="example@minicartjs.com">
+                    <input type="hidden" name="item_name" value="SNORKELING + BUGGY">
+                    <input type="hidden" name="amount" value="190.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value="http://via.dev/success">
+                    <input type="hidden" name="cancel_return" value="http://via.dev/cancel.html">
+                    <strong>SNORKELING + BUGGY</strong>
+                    <ul>
+                        <li>Price $190.00</li>
+                    </ul>
+                    <input type="submit" name="submit" value="Add to cart" class="button">
+                </fieldset>
+            </form>
+
+            <p>#2
+
+            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                <fieldset>
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="add" value="1">
+                    <input type="hidden" name="business" value="example@minicartjs.com">
+                    <input type="hidden" name="item_name" value="ZIP LINE + BUGGY">
+                    <input type="hidden" name="amount" value="62.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value="http://via.dev/success">
+                    <input type="hidden" name="cancel_return" value="http://via.dev/cancel.html">
+                    <strong>ZIP LINE + BUGGY</strong>
+                    <ul>
+                        <li>Price $62.00</li>
+                    </ul>
+                    <input type="submit" name="submit" value="Add to cart" class="button">
+                </fieldset>
+            </form>
+
+            </p>
+
+      <!-- end test -->
+
     </div> <!-- container -->
 
     <footer class="footer">
@@ -67,5 +107,18 @@
       </div>
     </footer>
 
+
+    <!-- mini cart JS -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <script>
+        paypal.minicart.render();
+
+        $('#viewcart').click(function (e) {
+        e.stopPropagation();
+        paypal.minicart.view.show();
+      });
+    </script>
   </body>
 </html>
