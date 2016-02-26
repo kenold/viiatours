@@ -21,6 +21,16 @@ body {
   margin: 20px 0;
 }
 
+#viewcart {
+  cursor: pointer;
+}
+
+#viewcart .glyphicon {
+  font-size: 20px;
+  vertical-align: middle;
+  color: #f15a29;
+}
+
 .page-header #links {
   float: right;
   position: relative;
