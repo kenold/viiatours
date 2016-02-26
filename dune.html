@@ -56,12 +56,25 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     
     <script>
+        // render the mini cart
         paypal.minicart.render();
 
+        // show mini cart
         $('#viewcart').click(function (e) {
         e.stopPropagation();
         paypal.minicart.view.show();
       });
+
+      // add this tour to cart
+      $('#addcart').click(function (e) {
+      e.stopPropagation();
+      paypal.minicart.cart.add({
+        business: 'ken-test@viiatours.com',
+        item_name: 'DUNE BUGGY INDIVIDUAL',
+        amount: 85.00,
+        currency_code: 'USD'
+      });
+    });
     </script>
   </body>
 </html>
