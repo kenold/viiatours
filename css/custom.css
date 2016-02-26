@@ -21,7 +21,7 @@ body {
   margin: 20px 0;
 }
 
-.page-header .cart {
+.page-header #viewcart {
   float: right;
   position: relative;
   bottom: 30px;
