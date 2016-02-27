@@ -25,7 +25,7 @@
         <div id="links">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li id="viewcart"><span class="glyphicon glyphicon-shopping-cart"></span> ( <?php echo items.length ?> )</li>
+            <li id="viewcart"><span class="glyphicon glyphicon-shopping-cart"></span> (<span class="itemcount">0</span>)</li>
           </ul>
         </div> <!-- end links -->
       </div> <!-- end page-header --> 
@@ -74,10 +74,20 @@
     <script>
         paypal.minicart.render();
 
+        // cart item count
+        var products = paypal.minicart.cart.items();
+        
+        var countItems = products.length;
+
+        $('.itemcount').text(countItems);
+
+        // show mini cart
         $('#viewcart').click(function (e) {
         e.stopPropagation();
         paypal.minicart.view.show();
-      });
+      });       
+            
     </script>
+    
   </body>
 </html>
