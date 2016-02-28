@@ -25,7 +25,7 @@
         <div id="links">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li id="viewcart">Cart <span class="glyphicon glyphicon-shopping-cart"></span></li>
+            <li id="viewcart"><span class="glyphicon glyphicon-shopping-cart"></span> (<span class="itemcount"></span>)</li>
           </ul>
         </div> <!-- end links -->
       </div> <!-- end page-header -->  
@@ -56,14 +56,44 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     
     <script>
-        // render the mini cart
         paypal.minicart.render();
 
-        // show mini cart
-        $('#viewcart').click(function (e) {
-          e.stopPropagation();
-          paypal.minicart.view.show();
-        });
+    // cart item count
+
+    function updateCount() {
+        var products = paypal.minicart.cart.items();
+
+        var countItems = products.length;
+
+        if (countItems == 0) {
+            $('.itemcount').text('0')
+        } else {
+            $('.itemcount').text(countItems);
+        }
+    }
+
+
+    $(document).ready(function() {
+
+	    updateCount();
+
+	    paypal.minicart.cart.on('add', function() {
+	    	updateCount();
+        paypal.minicart.view.toggle();
+	    });
+
+	    paypal.minicart.cart.on('remove', function() {
+	        updateCount();
+	    });
+
+    }); // document.ready
+
+
+    // show mini cart
+    $('#viewcart').click(function (e) {
+        e.stopPropagation();
+        paypal.minicart.view.show();
+    }); 
 
         // add this tour to cart
         $('#addcart').click(function (e) {

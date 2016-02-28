@@ -1,93 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Viia Tours Booking Test - Ken</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <title>Viia Tours Booking Test - Ken</title>
 
-    <!-- Custom styles -->
-    <link href="css/custom.css" rel="stylesheet">    
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  </head>
+  <!-- Custom styles -->
+  <link href="css/custom.css" rel="stylesheet">   
 
-  <body>
+</head>
 
+<body>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>Viia Tours Top Excursions</h1>
+      <div id="links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li id="viewcart"><span class="glyphicon glyphicon-shopping-cart"></span> (<span class="itemcount"></span>)</li>
+      </ul>
+  </div> <!-- end links -->
+</div> <!-- end page-header --> 
+
+<p class="lead">Find the best adventure and sightseeing activities in the area.</p>    
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <a href="snorkeling.html"><img src="http://viiatours.com/wp-content/uploads/2016/01/viia-combo-fetured.jpg" alt="tours" class="img-thumbnail"></a>
+      <h5><a href="snorkeling.html">SNORKELING + BUGGY</a></h5>
+      <h4>$90</h4>
+  </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card">
+      <a href="zipline.html"><img src="http://viiatours.com/wp-content/uploads/2015/10/zipline-canopy-puntacana.jpg" alt="tours" class="img-thumbnail"></a>
+      <h5><a href="zipline.html">ZIP LINE + BUGGY</a></h5>
+      <h4>$140</h4>
+  </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card">
+      <a href="dune.html"><img src="http://viiatours.com/wp-content/uploads/2016/01/dune-buggy.jpg" alt="tours" class="img-thumbnail"></a>
+      <h5><a href="dune.html">DUNE BUGGY INDIVIDUAL</a></h5>
+      <h4>$85</h4>
+  </div>
+</div>          
+</div> <!-- row -->
+
+</div> <!-- container -->
+
+<footer class="footer">
     <div class="container">
-      <div class="page-header">
-        <h1>Viia Tours Top Excursions</h1>
-        <div id="links">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li id="viewcart"><span class="glyphicon glyphicon-shopping-cart"></span> (<span class="itemcount">0</span>)</li>
-          </ul>
-        </div> <!-- end links -->
-      </div> <!-- end page-header --> 
-
-      <p class="lead">Find the best adventure and sightseeing activities in the area.</p>    
-      
-      <div class="row">
-          <div class="col-md-4">
-            <div class="card">
-              <a href="snorkeling.html"><img src="http://viiatours.com/wp-content/uploads/2016/01/viia-combo-fetured.jpg" alt="tours" class="img-thumbnail"></a>
-              <h5><a href="snorkeling.html">SNORKELING + BUGGY</a></h5>
-              <h4>$90</h4>
-            </div>
-          </div>
-          
-          <div class="col-md-4">
-            <div class="card">
-              <a href="zipline.html"><img src="http://viiatours.com/wp-content/uploads/2015/10/zipline-canopy-puntacana.jpg" alt="tours" class="img-thumbnail"></a>
-              <h5><a href="zipline.html">ZIP LINE + BUGGY</a></h5>
-              <h4>$140</h4>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="card">
-              <a href="dune.html"><img src="http://viiatours.com/wp-content/uploads/2016/01/dune-buggy.jpg" alt="tours" class="img-thumbnail"></a>
-              <h5><a href="dune.html">DUNE BUGGY INDIVIDUAL</a></h5>
-              <h4>$85</h4>
-            </div>
-          </div>          
-      </div> <!-- row -->
-
-    </div> <!-- container -->
-
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">© 2016 VIIA Tours | All right reserved</p>
-      </div>
-    </footer>
+      <p class="text-muted">© 2016 VIIA Tours | All right reserved</p>
+  </div>
+</footer>
 
 
-    <!-- mini cart JS -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    
-    <script>
-        paypal.minicart.render();
+<!-- mini cart JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-        // cart item count
+<script>
+
+    paypal.minicart.render();
+
+    // cart item count
+
+    function updateCount() {
         var products = paypal.minicart.cart.items();
-        
+
         var countItems = products.length;
 
-        $('.itemcount').text(countItems);
+        if (countItems == 0) {
+            $('.itemcount').text('0')
+        } else {
+            $('.itemcount').text(countItems);
+        }
+    }
 
-        // show mini cart
-        $('#viewcart').click(function (e) {
+
+    $(document).ready(function() {
+
+	    updateCount();
+
+	    paypal.minicart.cart.on('add', function() {
+	    	updateCount();
+	    });
+
+	    paypal.minicart.cart.on('remove', function() {
+	        updateCount();
+	    });
+
+    }); // document.ready
+
+
+    // show mini cart
+    $('#viewcart').click(function (e) {
         e.stopPropagation();
         paypal.minicart.view.show();
-      });       
-            
-    </script>
-    
-  </body>
+    });       
+
+</script>
+
+</body>
 </html>
