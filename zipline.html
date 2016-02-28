@@ -78,8 +78,8 @@
       updateCount();
 
       paypal.minicart.cart.on('add', function() {
-        paypal.minicart.view.toggle();
         updateCount();
+        paypal.minicart.view.show();
       });
 
       paypal.minicart.cart.on('remove', function() {
