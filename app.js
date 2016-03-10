@@ -13,16 +13,19 @@ app.get('/', function(req, res) {
     
     var tours = [
          {
+             id: 100,
              name: "Snorkelling + Buggy",
              price: 90,
              photo: "https://viiatours.com/wp-content/uploads/2016/01/viia-combo-fetured.jpg"
          },
-         {
+         {  
+             id: 200,
              name: "Zip Line + Buggy",
              price: 140,
              photo: "https://viiatours.com/wp-content/uploads/2015/10/zipline-canopy-puntacana.jpg"
          },
          {
+             id: 300,
              name: "Dune Buggy Individual",
              price: 85,
              photo: "https://viiatours.com/wp-content/uploads/2016/01/dune-buggy.jpg"
