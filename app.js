@@ -9,9 +9,7 @@ app.use(express.static('public'));
 // tell express to EJS template, so no .ejs needed
 app.set('view engine', 'ejs')
 
-app.get('/', function(req, res) {
-    
-    var tours = [
+var tours = [
          {
              id: 100,
              name: "Snorkelling + Buggy",
@@ -32,6 +30,8 @@ app.get('/', function(req, res) {
          }
     ];
     
+app.get('/', function(req, res) {
+    
     var tagline = "Find the best adventure and sightseeing activities in the area.";
     
     res.render('home', {
@@ -45,7 +45,9 @@ app.get('/tours', function(req, res) {
 });
 
 app.get('/tour/:id', function(req, res) {
-    res.render('tours/show');
+    res.render('tours/show', {
+        tours: tours
+    });
 });
 
 app.get('/about', function(req, res) {
