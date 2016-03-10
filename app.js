@@ -45,7 +45,7 @@ app.get('/tours', function(req, res) {
 });
 
 app.get('/tour/:id', function(req, res) {
-    res.send('single tour page');
+    res.render('tours/show');
 });
 
 app.get('/about', function(req, res) {
