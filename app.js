@@ -41,10 +41,17 @@ app.get('/', function(req, res) {
 });
 
 app.get('/tours', function(req, res) {
-    res.render('tours/index');
+    
+    var tagline = "All Viia Tours";
+    
+    res.render('tours/index', {
+        tours: tours,
+        tagline: tagline
+    });
 });
 
 app.get('/tour/:id', function(req, res) {
+    
     res.render('tours/show', {
         tours: tours
     });
