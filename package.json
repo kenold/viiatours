@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kenold/viiatours/issues"
   },
-  "homepage": "https://github.com/kenold/viiatours#readme"
+  "homepage": "https://github.com/kenold/viiatours#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
