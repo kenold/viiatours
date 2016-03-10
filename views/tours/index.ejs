@@ -5,7 +5,22 @@
 
 <div class="container">
 
-    <h3>All tours page</h3>
+    <p class="lead"><%= tagline %></p>    
+
+  <div class="row">
+    <% tours.forEach(function(tour) { %>
+      
+      <div class="col-md-4">
+        <div class="card">
+          <a href="tour/<%= tour.id %>"><img src="<%= tour.photo %>" alt="<%= tour.name %>" class="img-thumbnail"></a>
+          <h5><a href="tour/<%= tour.id %>"><%= tour.name %></a></h5>
+          <h4>$<%= tour.price %></h4>
+        </div>
+      </div>
+    
+    <% }) %>
+    
+  </div> <!-- row -->
 
 </div> <!-- /.container -->
 
