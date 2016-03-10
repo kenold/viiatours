@@ -22,15 +22,15 @@ app.get('/tour/:id', function(req, res) {
 });
 
 app.get('/about', function(req, res) {
-    res.send('about page');
+    res.render('pages/about');
 });
 
 app.get('/contact', function(req, res) {
-    res.send('contact page');
+    res.render('pages/contact');
 });
 
 app.get('/faqs', function(req, res) {
-    res.send('FAQs page');
+    res.render('pages/faqs');
 });
 
 app.listen(port, host, function () {
