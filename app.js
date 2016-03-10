@@ -3,12 +3,18 @@ var app = express();
 var port = process.env.PORT;
 var host = process.env.IP;
 
+// set the public folder for css, img and script files
+app.use(express.static('public'));
+
+// tell express to EJS template, so no .ejs needed
+app.set('view engine', 'ejs')
+
 app.get('/', function(req, res) {
-    res.render('home.ejs');
+    res.render('home');
 });
 
 app.get('/tours', function(req, res) {
-    res.render('tours/index.ejs');
+    res.render('tours/index');
 });
 
 app.get('/tour/:id', function(req, res) {
