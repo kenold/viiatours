@@ -1,12 +1,16 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT;
-var ip = process.env.IP;
+var host = process.env.IP;
 
-app.get('/tours', function(req, res) {
-    res.send("All tours");
+app.get('/', function(req, res) {
+    res.render('home.ejs');
 });
 
-app.listen(port, ip, function () {
+app.get('/tours', function(req, res) {
+    res.render('tours/index.ejs');
+})
+
+app.listen(port, host, function () {
   console.log('Viia Tours app listening on port ' + port + '!');
 });
