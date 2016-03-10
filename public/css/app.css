@@ -31,18 +31,6 @@ body {
   color: #f15a29;
 }
 
-.page-header #links {
-  float: right;
-  position: relative;
-  bottom: 30px;
-}
-
-.page-header #links ul li {
-  list-style-type: none;
-  display: inline;
-  padding-right: 10px;
-}  
-
 .row .card {
   border-bottom: 1px solid #EEE;
 }
