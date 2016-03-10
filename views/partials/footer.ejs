@@ -1,0 +1,48 @@
+<!-- mini cart JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+
+    paypal.minicart.render();
+
+    // cart item count
+
+    function updateCount() {
+        var products = paypal.minicart.cart.items();
+
+        var countItems = products.length;
+
+        if (countItems == 0) {
+            $('.itemcount').text('0')
+        } else {
+            $('.itemcount').text(countItems);
+        }
+    }
+
+
+    $(document).ready(function() {
+
+	    updateCount();
+
+	    paypal.minicart.cart.on('add', function() {
+	    	updateCount();
+	    });
+
+	    paypal.minicart.cart.on('remove', function() {
+	        updateCount();
+	    });
+
+    }); // document.ready
+
+
+    // show mini cart
+    $('#viewcart').click(function (e) {
+        e.stopPropagation();
+        paypal.minicart.view.show();
+    });       
+
+</script>
+
+</body>
+</html>
