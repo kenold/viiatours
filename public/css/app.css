@@ -1,0 +1,61 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#viewcart {
+  cursor: pointer;
+}
+
+#viewcart .glyphicon {
+  font-size: 20px;
+  vertical-align: middle;
+  color: #f15a29;
+}
+
+.page-header #links {
+  float: right;
+  position: relative;
+  bottom: 30px;
+}
+
+.page-header #links ul li {
+  list-style-type: none;
+  display: inline;
+  padding-right: 10px;
+}  
+
+.row .card {
+  border-bottom: 1px solid #EEE;
+}
+
+.row .card h5 a {
+  color: #f15a29;
+}
+
+.row h5 a {
+  font-weight: bold;
+}
+
+body #PPMiniCart {
+  left:70%;
+  top:90px;
+}
