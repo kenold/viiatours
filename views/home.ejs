@@ -5,33 +5,22 @@
 
 <div class="container">
 
-<p class="lead">Find the best adventure and sightseeing activities in the area.</p>    
+  <p class="lead"><%= tagline %></p>    
 
-<div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <a href="snorkeling.html"><img src="https://viiatours.com/wp-content/uploads/2016/01/viia-combo-fetured.jpg" alt="tours" class="img-thumbnail"></a>
-      <h5><a href="snorkeling.html">SNORKELING + BUGGY</a></h5>
-      <h4>$90</h4>
-  </div>
-</div>
-
-<div class="col-md-4">
-    <div class="card">
-      <a href="zipline.html"><img src="https://viiatours.com/wp-content/uploads/2015/10/zipline-canopy-puntacana.jpg" alt="tours" class="img-thumbnail"></a>
-      <h5><a href="zipline.html">ZIP LINE + BUGGY</a></h5>
-      <h4>$140</h4>
-  </div>
-</div>
-
-<div class="col-md-4">
-    <div class="card">
-      <a href="dune.html"><img src="https://viiatours.com/wp-content/uploads/2016/01/dune-buggy.jpg" alt="tours" class="img-thumbnail"></a>
-      <h5><a href="dune.html">DUNE BUGGY INDIVIDUAL</a></h5>
-      <h4>$85</h4>
-  </div>
-</div>          
-</div> <!-- row -->
+  <div class="row">
+    <% tours.forEach(function(tour) { %>
+      
+      <div class="col-md-4">
+        <div class="card">
+          <a href="snorkeling.html"><img src="<%= tour.photo %>" alt="<%= tour.name %>" class="img-thumbnail"></a>
+          <h5><a href="snorkeling.html"><%= tour.name %></a></h5>
+          <h4>$<%= tour.price %></h4>
+        </div>
+      </div>
+    
+    <% }) %>
+    
+  </div> <!-- row -->
 
 </div> <!-- container -->
 
