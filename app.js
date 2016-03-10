@@ -10,7 +10,31 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs')
 
 app.get('/', function(req, res) {
-    res.render('home');
+    
+    var tours = [
+         {
+             name: "Snorkelling + Buggy",
+             price: 90,
+             photo: "https://viiatours.com/wp-content/uploads/2016/01/viia-combo-fetured.jpg"
+         },
+         {
+             name: "Zip Line + Buggy",
+             price: 140,
+             photo: "https://viiatours.com/wp-content/uploads/2015/10/zipline-canopy-puntacana.jpg"
+         },
+         {
+             name: "Dune Buggy Individual",
+             price: 85,
+             photo: "https://viiatours.com/wp-content/uploads/2016/01/dune-buggy.jpg"
+         }
+    ];
+    
+    var tagline = "Find the best adventure and sightseeing activities in the area.";
+    
+    res.render('home', {
+        tours: tours,
+        tagline: tagline
+    });
 });
 
 app.get('/tours', function(req, res) {
