@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT;
+var portLocal = 3000;
 var host = process.env.IP;
 
 // set the public folder for css, img and script files
@@ -69,6 +70,6 @@ app.get('/faqs', function(req, res) {
     res.render('pages/faqs');
 });
 
-app.listen(port, host, function () {
-  console.log('Viia Tours app listening on port ' + port + '!');
+app.listen(portLocal, host, function () {
+  console.log('Viia Tours app listening on port ' + portLocal + '!');
 });
